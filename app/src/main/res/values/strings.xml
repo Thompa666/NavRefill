@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NavRefill</string>
+    <string name="action_settings">Settings</string>
+    <array name="listview_item">
+
+    </array>
+    <string name="title_activity_display">DisplayActivity</string>
+    <string name="title_activity_report">ReportActivity</string>
+
+</resources>
