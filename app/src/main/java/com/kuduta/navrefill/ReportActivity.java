@@ -23,7 +23,7 @@ public class ReportActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        /*
         TextView textView = (TextView) findViewById(R.id.tvreport);
         Cursor res = myDB.getAllData();
         StringBuffer stringBuffer = new StringBuffer();
@@ -45,6 +45,7 @@ public class ReportActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"No data retrieve",Toast.LENGTH_SHORT).show();
 
         }
+        */
 
      /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

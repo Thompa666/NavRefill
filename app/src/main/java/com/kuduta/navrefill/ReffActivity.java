@@ -26,11 +26,13 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ReffActivity extends AppCompatActivity {
 
     ArrayList<String> exData = null;
     ProgressDialog pDialog;
+    private List<Data> datas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class ReffActivity extends AppCompatActivity {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
+        final Data item = null;
+
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url,
 
                 new Response.Listener<JSONArray>() {
@@ -80,10 +84,17 @@ public class ReffActivity extends AppCompatActivity {
                                 strNumPhone = "0" + strNumPhone.substring(2);
 
 //                                arrayList.add(strNumPhone + " , " + strNetwork + " , " + strMoney + " , " + strExpire);
-                                arrayList.add(strNumPhone + " , " + strMoney + " , " + strExpire);
+
+                                //******// Used class Data
+                                arrayList.add(strNumPhone + " \t \t"  + twoPoint(strMoney) + "\t  \t " + strExpire +"\t \t \t");
+
+                                //add new
+                                //datas.add(new Data(strNumPhone  ,  strMoney , strExpire));
+                                //MyAdapter adapter = new MyAdapter(ReffActivity.this,datas);
 
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_multiple_choice, arrayList);
                                 listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
                                 listView.setAdapter(adapter);
 
                             } catch (JSONException e) {
@@ -93,6 +104,7 @@ public class ReffActivity extends AppCompatActivity {
                             pDialog.hide();
 
                         }
+
 
                     }
                 },
@@ -109,6 +121,16 @@ public class ReffActivity extends AppCompatActivity {
         queue.add(jsonArrayRequest);
 
         Button button = (Button) findViewById(R.id.button);
+        Button  bthome = (Button) findViewById(R.id.button3);
+
+        bthome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ReffActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,11 +155,26 @@ public class ReffActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(ReffActivity.this,DisplayActivity.class);
+
+//                Intent intent = new Intent(ReffActivity.this,PayDisplayActivity.class);
                 intent.putExtra("numPhArrayList", numPhArrayList);
                 startActivity(intent);
 
             }
         });
+
+
+    }
+    private String twoPoint(String mCheck){
+
+        String dot = ".";
+
+        if (mCheck.contains(dot)){
+            return mCheck;
+        }else{
+
+            return  mCheck+".00";
+        }
 
 
     }

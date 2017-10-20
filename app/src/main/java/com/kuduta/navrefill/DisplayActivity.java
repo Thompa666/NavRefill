@@ -81,49 +81,80 @@ public class DisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                EditText mnyEditText = (EditText) findViewById(R.id.edtmny);
-                EditText pwdEditText = (EditText) findViewById(R.id.edtpwd);
+                AlertDialog.Builder builder  = new AlertDialog.Builder(DisplayActivity.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View view = inflater.inflate(R.layout.dialog_pay, null);
+
+                builder.setView(view);
+                EditText mnyEditText = (EditText) findViewById(R.id.paymoney);
+                EditText pwdEditText = (EditText) findViewById(R.id.paypass);
+
 
                 strMoney = mnyEditText.getText().toString().trim();
                 strPwd = pwdEditText.getText().toString().trim();
 
+                Toast.makeText(getApplicationContext(), "Money is : "+ strMoney  +"; Password is : "+ strPwd, Toast.LENGTH_SHORT).show();
 
+            }
+        });
+       /* payButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                EditText mnyEditText = (EditText) findViewById(R.id.edtmny);
+//                EditText pwdEditText = (EditText) findViewById(R.id.edtpwd);
+
+               //New edit 19.10.2017
+                AlertDialog.Builder builder  = new AlertDialog.Builder(DisplayActivity.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View view = inflater.inflate(R.layout.dialog_pay, null);
+
+                builder.setView(view);
+                EditText mnyEditText = (EditText) findViewById(R.id.paymoney);
+                EditText pwdEditText = (EditText) findViewById(R.id.paypass);
+
+
+                strMoney = mnyEditText.getText().toString().trim();
+                strPwd = pwdEditText.getText().toString().trim();
+
+                Toast.makeText(getApplicationContext(), "Money is : "+ strMoney  +"; Password is : "+ strPwd, Toast.LENGTH_SHORT).show();
 
 //                Toast.makeText(getApplicationContext(), "Money is : "+ strMoney  +"; Password is : "+ strPwd, Toast.LENGTH_SHORT).show();
 
-                progressDialog = new ProgressDialog(DisplayActivity.this);
-                progressDialog.setMessage("Processing..");
-                progressDialog.show();
+//                progressDialog = new ProgressDialog(DisplayActivity.this);
+//                progressDialog.setMessage("Processing..");
+//                progressDialog.show();
 
-                for(int i =0; i< numPhone.size(); i++){
-
+//                for(int i =0; i< numPhone.size(); i++){
+//
+////                    Toast.makeText(getApplicationContext(),numPhone.get(i),Toast.LENGTH_SHORT).show();
+//
+//                    while (telecomManager.CALL_STATE_IDLE == 1){}
+//
+//                    refillSUUD(numPhone.get(i),strPwd,strMoney);
+//
 //                    Toast.makeText(getApplicationContext(),numPhone.get(i),Toast.LENGTH_SHORT).show();
+//
+//
+//
+//                    //Log status in database
+//                    myDB.addRecord(strDate, numPhone.get(i),Integer.parseInt(strMoney),"Refill");
+//
+//                }
 
-                    while (telecomManager.CALL_STATE_IDLE == 1){}
-
-                    refillSUUD(numPhone.get(i),strPwd,strMoney);
-
-                    Toast.makeText(getApplicationContext(),numPhone.get(i),Toast.LENGTH_SHORT).show();
-
-
-
-                    //Log status in database
-                    myDB.addRecord(strDate, numPhone.get(i),Integer.parseInt(strMoney),"Refill");
-
-                }
-
-                progressDialog.hide();
+//                progressDialog.hide();
 
                 Intent hintent = new Intent(DisplayActivity.this, MainActivity.class);
                 startActivity(hintent);
             }
-        });
+        }); */
 
     }
     public void refillSUUD(String num, String pwd ,String money){
 
 //        String ussdCode = "*140*1*"+num+"*"+money+ Uri.encode("#");
-        String ussdCode = "*211*1*"+num+"*"+money+"*"+pwd+ Uri.encode("#");
+//        new ussd
+        String ussdCode = "*211*1*"+num+"*"+pwd +"*"+ money+"*1"+Uri.encode("#");
         startActivity(new Intent("android.intent.action.CALL", Uri.parse("tel:"+ussdCode)));
 
     }
