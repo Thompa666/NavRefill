@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btnReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent reportIntent = new Intent(MainActivity.this, ReportActivity.class);
+                Intent reportIntent = new Intent(MainActivity.this, ReportRealActivity.class);
                 startActivity(reportIntent);
             }
         });
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                 final EditText expEditText = (EditText) view.findViewById(R.id.expireDate);
                 final EditText moneyEditText = (EditText) view.findViewById(R.id.moneyLife);
+                final CheckBox chkLicense = (CheckBox) view.findViewById(R.id.chkLicense);
 
                 final ImageButton imageButton = (ImageButton) view.findViewById(R.id.imbtCalen);
                 imageButton.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
 //                        String strExpDate = CalDate(Integer.parseInt(expEditText.getText().toString()));
                         String strExpDate = expEditText.getText().toString().trim();
                         String strMonLife = moneyEditText.getText().toString().trim();
+                        Boolean chklic = false;
+
+                        if(chkLicense.isChecked() == true ) chklic = true;
+
 
                         Toast.makeText(getApplicationContext(), "หมดอายุถึงวันที่ : " + strExpDate, Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), "จำนวนเงินที่เลือก : " + strMonLife, Toast.LENGTH_SHORT).show();
@@ -105,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent i = new Intent(MainActivity.this, ReffActivity.class);
                         i.putExtra("expValue", strExpDate);
                         i.putExtra("monValue", strMonLife);
+                        i.putExtra("licValue", chklic);
                         startActivity(i);
                         finish();
 

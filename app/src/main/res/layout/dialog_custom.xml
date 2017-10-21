@@ -41,4 +41,11 @@
         android:hint="จำนวนเงินที่เหลือน้อยกว่า"
         android:inputType="number" />
 
+    <CheckBox
+        android:id="@+id/chkLicense"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_show_exp" />
+
+
 </LinearLayout>

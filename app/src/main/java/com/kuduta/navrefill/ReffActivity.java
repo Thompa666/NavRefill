@@ -41,6 +41,8 @@ public class ReffActivity extends AppCompatActivity {
 
         final String valExpDate = getIntent().getExtras().getString("expValue");  //variable  dialog expiration  date
         final String valMoney = getIntent().getExtras().getString("monValue");  // variable dialog Money
+        final Boolean valLic = getIntent().getExtras().getBoolean("licValue");
+
 
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -78,6 +80,7 @@ public class ReffActivity extends AppCompatActivity {
 
                                 String strNumPhone = jsObj.getString("ph_number");
                                 String strNetwork = jsObj.getString("network");
+                                String strlicense = jsObj.getString("license");
                                 String strMoney = jsObj.getString("money");
                                 String strExpire = jsObj.getString("expire");
 
@@ -86,8 +89,17 @@ public class ReffActivity extends AppCompatActivity {
 //                                arrayList.add(strNumPhone + " , " + strNetwork + " , " + strMoney + " , " + strExpire);
 
                                 //******// Used class Data
-                                arrayList.add(strNumPhone + " \t \t"  + twoPoint(strMoney) + "\t  \t " + strExpire +"\t \t \t");
+                                if(valLic==true) {
 
+                                    if(!strlicense.substring(0, 1).matches("ฯ"))
+//                                       arrayList.add(strNumPhone + " \t \t" + twoPoint(strMoney) + "\t  \t " + strExpire + "\t \t \t");
+                                        arrayList.add(strNumPhone + "\t" + strlicense +"\t");
+
+                                }else {
+
+//                                    arrayList.add(strNumPhone + " \t \t" + twoPoint(strMoney) + "\t  \t " + strExpire + "\t \t \t");
+                                    arrayList.add(strNumPhone + "\t" + strlicense +"\t");
+                                }
                                 //add new
                                 //datas.add(new Data(strNumPhone  ,  strMoney , strExpire));
                                 //MyAdapter adapter = new MyAdapter(ReffActivity.this,datas);

@@ -97,7 +97,7 @@ public class DisplayActivity extends AppCompatActivity {
 
             }
         });
-       /* payButton.setOnClickListener(new View.OnClickListener() {
+       payButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -119,35 +119,35 @@ public class DisplayActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Money is : "+ strMoney  +"; Password is : "+ strPwd, Toast.LENGTH_SHORT).show();
 
-//                Toast.makeText(getApplicationContext(), "Money is : "+ strMoney  +"; Password is : "+ strPwd, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Money is : "+ strMoney  +"; Password is : "+ strPwd, Toast.LENGTH_SHORT).show();
 
-//                progressDialog = new ProgressDialog(DisplayActivity.this);
-//                progressDialog.setMessage("Processing..");
-//                progressDialog.show();
+                progressDialog = new ProgressDialog(DisplayActivity.this);
+                progressDialog.setMessage("Processing..");
+                progressDialog.show();
 
-//                for(int i =0; i< numPhone.size(); i++){
-//
-////                    Toast.makeText(getApplicationContext(),numPhone.get(i),Toast.LENGTH_SHORT).show();
-//
-//                    while (telecomManager.CALL_STATE_IDLE == 1){}
-//
-//                    refillSUUD(numPhone.get(i),strPwd,strMoney);
-//
+                for(int i =0; i< numPhone.size(); i++){
+
 //                    Toast.makeText(getApplicationContext(),numPhone.get(i),Toast.LENGTH_SHORT).show();
-//
-//
-//
-//                    //Log status in database
-//                    myDB.addRecord(strDate, numPhone.get(i),Integer.parseInt(strMoney),"Refill");
-//
-//                }
 
-//                progressDialog.hide();
+                    while (telecomManager.CALL_STATE_IDLE == 1){}
+
+                    refillSUUD(numPhone.get(i),strPwd,strMoney);
+
+                    Toast.makeText(getApplicationContext(),numPhone.get(i),Toast.LENGTH_SHORT).show();
+
+
+
+                    //Log status in database
+                    myDB.addRecord(strDate, numPhone.get(i),Integer.parseInt(strMoney),"Refill");
+
+                }
+
+                progressDialog.hide();
 
                 Intent hintent = new Intent(DisplayActivity.this, MainActivity.class);
                 startActivity(hintent);
             }
-        }); */
+        });
 
     }
     public void refillSUUD(String num, String pwd ,String money){

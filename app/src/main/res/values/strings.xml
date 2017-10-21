@@ -6,5 +6,14 @@
     </array>
     <string name="title_activity_display">DisplayActivity</string>
     <string name="title_activity_report">ReportActivity</string>
+    <string name="app_main_home">กลับหน้าหลัก</string>
+    <string name="app_cancle">ยกเลิก</string>
+    <string name="app_report">รายงาน</string>
+    <string name="app_refill">เติมเงินมือถือ</string>
+    <string name="app_exit">ออก</string>
+    <string name="app_show_exp">ไม่แสดงรายยกเลิก</string>
+    <string name="app_reload">แสดงข้อมูล</string>
+    <string name="app_ok">ตกลง</string>
+
 
 </resources>

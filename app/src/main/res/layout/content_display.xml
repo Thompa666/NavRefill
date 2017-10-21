@@ -62,14 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="หน้าแรก" />
+            android:text="@string/app_main_home" />
 
         <Button
             android:id="@+id/btpay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="เติมเงิน" />
+            android:text="@string/app_refill" />
 
 
     </LinearLayout>
