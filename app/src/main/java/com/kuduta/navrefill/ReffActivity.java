@@ -92,13 +92,13 @@ public class ReffActivity extends AppCompatActivity {
                                 if(valLic==true) {
 
                                     if(!strlicense.substring(0, 1).matches("ฯ"))
-//                                       arrayList.add(strNumPhone + " \t \t" + twoPoint(strMoney) + "\t  \t " + strExpire + "\t \t \t");
-                                        arrayList.add(strNumPhone + "\t" + strlicense +"\t");
+                                       arrayList.add(strNumPhone + " \t \t" + twoPoint(strMoney) + "\t  \t " + strExpire + "\t \t \t");
+//                                        arrayList.add(strNumPhone + "\t" + strlicense +"\t");
 
                                 }else {
 
-//                                    arrayList.add(strNumPhone + " \t \t" + twoPoint(strMoney) + "\t  \t " + strExpire + "\t \t \t");
-                                    arrayList.add(strNumPhone + "\t" + strlicense +"\t");
+                                    arrayList.add(strNumPhone + " \t \t" + twoPoint(strMoney) + "\t  \t " + strExpire + "\t \t \t");
+//                                    arrayList.add(strNumPhone + "\t" + strlicense +"\t");
                                 }
                                 //add new
                                 //datas.add(new Data(strNumPhone  ,  strMoney , strExpire));
@@ -166,7 +166,7 @@ public class ReffActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), str, Toast.LENGTH_LONG).show();
 
 
-                Intent intent = new Intent(ReffActivity.this,DisplayActivity.class);
+                Intent intent = new Intent(ReffActivity.this,ShowRefillActivity.class);
 
 //                Intent intent = new Intent(ReffActivity.this,PayDisplayActivity.class);
                 intent.putExtra("numPhArrayList", numPhArrayList);

@@ -67,7 +67,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return row;
     }
 
+/*    public int calAmpunt(){2
 
+
+    }*/
     public String getRecord(long result) {
         String data = null;
 

@@ -14,7 +14,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/paymoney"
+                android:id="@+id/txtpaymoney"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -28,7 +28,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/paypass"
+                android:id="@+id/txtpaypass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -44,23 +44,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/paybtexit"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="41dp"
-        android:layout_toStartOf="@+id/paybtok"
-        android:text="CANCEL" />
-
-    <Button
-        android:id="@+id/paybtok"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/paybtexit"
-        android:layout_alignBottom="@+id/paybtexit"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="38dp"
-        android:text="OK" />
 </RelativeLayout>

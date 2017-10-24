@@ -22,11 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ReffActivity" />
-        <activity
-            android:name=".DisplayActivity"
-            android:label="@string/title_activity_display"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ReportRealActivity"></activity>
+        <activity android:name=".ReportRealActivity" />
+        <activity android:name=".ShowRefillActivity"></activity>
     </application>
 
 </manifest>
